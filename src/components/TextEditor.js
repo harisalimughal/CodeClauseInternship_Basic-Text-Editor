@@ -4,7 +4,7 @@ import Menu from './MenuBar';
 import Footer from './Footer';
 import CloseButton from './CloseButton';
 
-const TextEditor = () => {
+  const TextEditor = () => {
   const [text, setText] = useState('');
   const [isMinimized, setIsMinimized] = useState(false);
   const [textStack, setTextStack] = useState([]);
@@ -35,7 +35,7 @@ const TextEditor = () => {
             <textarea
             id="text-area"
               value={text}
-              onChange={(event) => {
+               onChange={(event) => {
                 setTextStack(text); // Save the previous text before making any changes
                 handleChange(event); // Call the handleChange function to update the text
               }}

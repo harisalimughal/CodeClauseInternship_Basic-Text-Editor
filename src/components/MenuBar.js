@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { saveAs } from 'file-saver';
 import AboutPanel from './AboutPanel';
 
-const Menu = ({text,onClose,onUndo}) => {
+  const Menu = ({text,onClose,onUndo}) => {
   const [showSaveMenu, setShowSaveMenu] = useState(false);
   const [showPrintMenu, setShowPrintMenu] = useState(false);
   const [showHelpMenu, setShowHelpMenu] = useState(false);
@@ -13,75 +13,75 @@ const Menu = ({text,onClose,onUndo}) => {
   const [showAboutPanel, setShowAboutPanel] = useState(false);
   
 
-  const handleSaveButtonClick = () => {
-    setShowSaveMenu(!showSaveMenu);
-  };
+   const handleSaveButtonClick = () => {
+     setShowSaveMenu(!showSaveMenu);
+   };
 
-  const handlePrintButtonClick = () => {
-    setShowPrintMenu(!showPrintMenu);
-  };
+   const handlePrintButtonClick = () => {
+     setShowPrintMenu(!showPrintMenu);
+   };
 
-  const handleHelpButtonClick = () => {
-    setShowHelpMenu(!showHelpMenu);
-  };
+   const handleHelpButtonClick = () => {
+     setShowHelpMenu(!showHelpMenu);
+   };
 
-  const handleEditButtonClick = () => {
-    setShowEditMenu(!showEditMenu);
-  };
+   const handleEditButtonClick = () => {
+     setShowEditMenu(!showEditMenu);
+   };
 
-  const handleFormatButtonClick = () => {
-    setShowFormatMenu(!showFormatMenu);
-  };
+   const handleFormatButtonClick = () => {
+     setShowFormatMenu(!showFormatMenu);
+   };
 
-  const handleViewButtonClick = () => {
-    setIsFullScreen(!isFullScreen);
-  };
+   const handleViewButtonClick = () => {
+     setIsFullScreen(!isFullScreen);
+   };
 
-  const handleSaveMenuOptionClick = (option) => {
-    if (option === 'save') {
-      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-      saveAs(blob, 'myFile.txt');
-    }
-  };
+   const handleSaveMenuOptionClick = (option) => {
+     if (option === 'save') {
+       const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+       saveAs(blob, 'myFile.txt');
+     }
+   };
 
-    const handleSaveasMenuOptionClick = (option) => {
-      if (option === 'saveas') {
-        const fileName = window.prompt('Enter file name:');
-        if (fileName) {
-          const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-          saveAs(blob, fileName);
-        }
-      }
-    };
+     const handleSaveasMenuOptionClick = (option) => {
+       if (option === 'saveas') {
+           const fileName = window.prompt('Enter file name:');
+             if (fileName) {
+               const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+                saveAs(blob, fileName);
+            }
+        } 
+     };
 
-  const handlePrintMenuOptionClick = (option) => {
-    setShowPrintMenu(false);
-    window.print();
-  };
+    const handlePrintMenuOptionClick = (option) => {
+      setShowPrintMenu(false);
+      window.print();
+   };
 
-  const handleHelpMenuOptionClick = (option) => {
-    setShowHelpMenu(false);
-   window.location.href='https://www.bing.com/search?q=get+help+with+notepad+in+windows&filters=guid:%224466414-en-dia%22%20lang:%22en%22&form=T00032&ocid=HelpPane-BingIA'
+   const handleHelpMenuOptionClick = (option) => {
+     setShowHelpMenu(false);
+     window.location.href='https://github.com/harisalimughal/CodeClauseInternship_Basic-Text-Editor'
   }
 
-  const handleAboutMenuOptionClick = (option) => {
-    setShowAboutPanel(true);
+   const handleAboutMenuOptionClick = (option) => {
+     setShowAboutPanel(true);
   };
 
-  const handleCloseAboutPanel = () => {
-    setShowAboutPanel(false);
+   const handleCloseAboutPanel = () => {
+      setShowAboutPanel(false);
   };
 
-  const handleUndoClick = () => {
-    onUndo(); // Call the onUndo prop passed from TextEditor when Undo is clicked
-    setShowEditMenu(false); // Close Edit menu after performing Undo
-  };
+   const handleUndoClick = () => {
+     onUndo(); // Call the onUndo prop passed from TextEditor when Undo is clicked
+     setShowEditMenu(false); // Close Edit menu after performing Undo
+   };
 
-  const handleFontMenuOptionClick = () => {
-    setShowHelpMenu(false);
-    const fontStyle = window.prompt('Enter font style (e.g., "Arial", "Verdana"):');
-    if (fontStyle) {
-      document.getElementById('text-area').style.fontFamily = fontStyle;
+   const handleFontMenuOptionClick = () => {
+      setShowHelpMenu(false);
+        const fontStyle = window.prompt('Enter font style (e.g., "Arial", "Verdana"):');
+          if (fontStyle) {
+            document.getElementById('text-area').style.fontFamily = fontStyle;
     }
   };
   
@@ -89,29 +89,32 @@ const Menu = ({text,onClose,onUndo}) => {
   
 
   const handleViewMenuOptionClick = (option) => {
-    setShowHelpMenu(false);
-    if (option === 'fullscreen') {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-        setIsFullScreen(false);
-      } else {
-        document.documentElement.requestFullscreen().catch((err) => {
-          console.log('Error attempting to enable full-screen mode:', err);
+      setShowHelpMenu(false);
+          if (option === 'fullscreen') {
+             if (document.fullscreenElement) {
+                  document.exitFullscreen();
+                  setIsFullScreen(false);
+           } 
+           else {
+           document.documentElement.requestFullscreen().catch((err) => {
+           console.log('Error attempting to enable full-screen mode:', err);
         });
-        setIsFullScreen(true);
+          setIsFullScreen(true);
       }
     }
   };
 
-  const handleCloseEditor = () => {
-    if (onClose) {
-      onClose();
+    const handleCloseEditor = () => {
+       if (onClose) {
+        onClose();
     }
   };
 
   
   return (
+    
     <div className="menu">
+       
       <div className="dropdown">
         <button onClick={handleSaveButtonClick}>File</button>
         {showSaveMenu && (
@@ -130,31 +133,31 @@ const Menu = ({text,onClose,onUndo}) => {
         )}
       </div>
 
-<div className="dropdown">
+   <div className="dropdown">
       <button onClick={handleEditButtonClick}>Edit</button>
       {showEditMenu && (
         <ul>
           <li onClick={() => handleUndoClick('Undo')}>Undo</li>      
           </ul>
       )} 
-</div>
-      <div className="dropdown">
-        <button onClick={handleFormatButtonClick}>Format</button>
-        {showFormatMenu && (
-          <ul>
-            <li onClick={() => handleFontMenuOptionClick('Font')}>Font</li>
-          </ul>
+   </div>
+       <div className="dropdown">
+         <button onClick={handleFormatButtonClick}>Format</button>
+         {showFormatMenu && (
+           <ul>
+             <li onClick={() => handleFontMenuOptionClick('Font')}>Font</li>
+           </ul>
         )}
       </div>
       <div className="dropdown">
-        <button onClick={handleViewButtonClick}>View</button>
-        {isFullScreen && (
-          <ul>
-            <li onClick={() => handleViewMenuOptionClick('fullscreen')}>Fullscreen</li>
-          </ul>
+         <button onClick={handleViewButtonClick}>View</button>
+           {isFullScreen && (
+           <ul>
+             <li onClick={() => handleViewMenuOptionClick('fullscreen')}>Fullscreen</li>
+           </ul>
         )}
-      </div>
-      <div className="dropdown">
+       </div>
+       <div className="dropdown">
         <button onClick={handleHelpButtonClick}>Help</button>
         {showHelpMenu && (
           <ul>
@@ -167,6 +170,10 @@ const Menu = ({text,onClose,onUndo}) => {
       <button className="close" onClick={handleCloseEditor}>
         Exit
       </button>
+
+      <div className="tag " > {/* Empty flex item to push content to the right */}
+      Haris' TextEditor
+    </div>
     </div>
   );
 };
